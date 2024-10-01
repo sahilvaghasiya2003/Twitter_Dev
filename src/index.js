@@ -34,8 +34,12 @@ app.listen(3000, async()=>{
     // console.log(tweet);
     
     const repo = new TweetReposiroty();
-    const tweet =await repo.getWithComments('66fa70edeac2b42ed80a85cc');
-    console.log(tweet);
+    const tweet =await repo.getAll(0,4);
+    console.log('###');
+    console.log(tweet[1].contentWithEmail);
+    
+    
+    // console.log(tweet);
     // const comment = await Comment.create({content:'New 2 Comments'})
     // tweet.comments.push(comment);
     // await tweet.save();
