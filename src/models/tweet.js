@@ -18,7 +18,12 @@ const tweetSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
-
+tweetSchema.pre('save',function(next){
+  console.log('Inisde a hook');
+  this.content = this.content + '....'
+  next();
+  
+})
 tweetSchema.virtual("contentWithEmail").get(function process() {
   return `${this.content}\nCreated BY: ${this.userEmail}`;
 });
